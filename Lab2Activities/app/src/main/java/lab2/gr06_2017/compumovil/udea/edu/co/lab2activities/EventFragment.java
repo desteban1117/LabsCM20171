@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.dummy.DummyContent;
-import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.dummy.DummyContent.DummyItem;
+import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.Event.EventContent;
+import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.Event.EventContent.EventItem;
 
 /**
  * A fragment representing a list of Items.
@@ -67,7 +67,7 @@ public class EventFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyeventRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyeventRecyclerViewAdapter(EventContent.ITEMS, mListener));
         }
         return view;
     }
@@ -102,6 +102,6 @@ public class EventFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(EventItem item);
     }
 }

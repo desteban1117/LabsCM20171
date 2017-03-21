@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.dummy.DummyContent;
+import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.Event.EventContent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ProfileFragment.OnFragmentInteractionListener, EventFragment.OnListFragmentInteractionListener {
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(EventContent.EventItem item) {
 
     }
 }

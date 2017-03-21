@@ -4,24 +4,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.EventFragment.OnListFragmentInteractionListener;
-import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.dummy.DummyContent.DummyItem;
+import lab2.gr06_2017.compumovil.udea.edu.co.lab2activities.Event.EventContent.EventItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link EventItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyeventRecyclerViewAdapter extends RecyclerView.Adapter<MyeventRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<EventItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyeventRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyeventRecyclerViewAdapter(List<EventItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,8 +37,10 @@ public class MyeventRecyclerViewAdapter extends RecyclerView.Adapter<MyeventRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mNameView.setText(mValues.get(position).name);
+        holder.mContentView.setText(mValues.get(position).details);
+        holder.mScore.setText(String.valueOf(mValues.get(position).score));
+        holder.mPicture.setImageResource(R.drawable.octocat);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,15 +61,19 @@ public class MyeventRecyclerViewAdapter extends RecyclerView.Adapter<MyeventRecy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
+        public final TextView mNameView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public final ImageView mPicture;
+        public final TextView mScore;
+        public EventItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mNameView = (TextView) view.findViewById(R.id.event_name);
+            mContentView = (TextView) view.findViewById(R.id.event_detail);
+            mScore = (TextView) view.findViewById(R.id.event_score);
+            mPicture = (ImageView) view.findViewById(R.id.event_photo);
         }
 
         @Override
